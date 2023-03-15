@@ -1,6 +1,6 @@
 specVersion: 0.0.4
-description: HL Protocol Goerli
-repository: https://github.com/horse-link/horse.link.subgraph
+description: HL Protocol Arbitrum
+repository: https://github.com/horse-link/horse.link.subgraph.arbitrum
 schema:
   file: ./schema.graphql
 
@@ -8,10 +8,10 @@ dataSources:
   # VAULTS
   - kind: ethereum/contract
     name: Vault
-    network: goerli
+    network: arbitrum-one
     source:
       abi: Vault
-      startBlock: 8586947
+      startBlock: 69931132
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -38,10 +38,10 @@ dataSources:
   # MARKETS
   - kind: ethereum/contract
     name: Market
-    network: goerli
+    network: arbitrum-one
     source:
       abi: Market
-      startBlock: 8586947
+      startBlock: 69931132
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -67,11 +67,11 @@ dataSources:
   # REGISTRY
   - kind: ethereum/contract
     name: Registry
-    network: goerli
+    network: arbitrum-one
     source:
-      address: '0x69e6a5FA1556f0e590bAe5e067D92FE653a17E1d'
+      address: '0x73a1f9cB82b7fe75A1B9059c61565a630F2a4C7e'
       abi: Registry
-      startBlock: 8586947
+      startBlock: 69931132
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
