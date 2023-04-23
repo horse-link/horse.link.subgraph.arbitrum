@@ -107,6 +107,8 @@ To begin development first run `yarn` and `yarn codegen` to generate the entitie
 
 To deploy the subgraph, make sure to have run `yarn codegen` and fetch your access token from the subgraph hosted service dashboard, found [here](https://thegraph.com/hosted-service/dashboard). Then, authorize your device for deployment by running `npx graph auth --product hosted-service <ACCESS_TOKEN>`. Once you've successfully authorized you can run `yarn deploy` to push a new pending version.
 
+The access token can be found at https://thegraph.com/hosted-service/subgraph/horse-link/hl-protocol-arbitrum?selected=logs
+
 ### Checking the sync
 
 Login into the graphy with meta mask or similar and visit https://thegraph.com/hosted-service/subgraph/horse-link/hl-protocol-arbitrum for sync status.
