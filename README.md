@@ -1,6 +1,6 @@
 # Horse-Link Protocol Subgraph
 
-[Subgraph Link](https://thegraph.com/hosted-service/subgraph/horse-link/hl-protocol-goerli)
+[Subgraph Link](https://thegraph.com/hosted-service/subgraph/horse-link/hl-protocol-arbitrum)
 
 ## Entities
 
