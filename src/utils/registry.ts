@@ -1,4 +1,4 @@
-import { Address, BigInt } from "@graphprotocol/graph-ts";
+import { Address, BigInt, log } from "@graphprotocol/graph-ts";
 import { Registry } from "../../generated/schema";
 
 function _initialiseRegistry(): Registry {
@@ -31,7 +31,24 @@ export function addMarketToRegistry(address: Address, timestamp: BigInt): void {
 
   registryEntity.lastUpdate = timestamp;
   registryEntity.save();
-}
+};
+
+export function removeMarketFromRegistry(address: Address, timestamp: BigInt): void {
+  const registryEntity = _getRegistry();
+
+  const markets = registryEntity.markets;
+  const removalIndex = markets.indexOf(address.toHexString().toLowerCase());
+  if (removalIndex === -1) {
+    log.error(`Could not remove market ${address.toHexString()}`, []);
+    return;
+  }
+
+  markets.splice(removalIndex, 1);
+
+  registryEntity.markets = markets;
+  registryEntity.lastUpdate = timestamp;
+  registryEntity.save();
+};
 
 export function addVaultToRegistry(address: Address, timestamp: BigInt): void {
   const registryEntity = _getRegistry();
@@ -41,6 +58,23 @@ export function addVaultToRegistry(address: Address, timestamp: BigInt): void {
 
   registryEntity.vaults = vaults;
 
+  registryEntity.lastUpdate = timestamp;
+  registryEntity.save();
+};
+
+export function removeVaultFromRegistry(address: Address, timestamp: BigInt): void {
+  const registryEntity = _getRegistry();
+
+  const vaults = registryEntity.vaults;
+  const removalIndex = vaults.indexOf(address.toHexString().toLowerCase());
+  if (removalIndex === -1) {
+    log.error(`Could not remove vault ${address.toHexString()}`, []);
+    return;
+  }
+
+  vaults.splice(removalIndex, 1);
+
+  registryEntity.vaults = vaults;
   registryEntity.lastUpdate = timestamp;
   registryEntity.save();
 };

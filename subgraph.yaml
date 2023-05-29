@@ -11,7 +11,7 @@ dataSources:
     network: arbitrum-one
     source:
       abi: Vault
-      startBlock: 69931132
+      startBlock: 88515347
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -41,7 +41,7 @@ dataSources:
     network: arbitrum-one
     source:
       abi: Market
-      startBlock: 69931132
+      startBlock: 88515347
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -71,7 +71,7 @@ dataSources:
     source:
       address: '0xa110D6Bd21c226285b18f91b1749eBc12007a7E7'
       abi: Registry
-      startBlock: 69931132
+      startBlock: 88515347
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -85,8 +85,12 @@ dataSources:
       eventHandlers:
         - event: MarketAdded(indexed address)
           handler: handleMarketAdded
+        - event: MarketRemoved(indexed address)
+          handler: handleMarketRemoved
         - event: ThresholdUpdated(uint256)
           handler: handleThresholdUpdated
         - event: VaultAdded(indexed address)
           handler: handleVaultAdded
+        - event: VaultRemoved(indexed address)
+          handler: handleVaultRemoved
       file: ./src/registry.ts

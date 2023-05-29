@@ -29,11 +29,31 @@ export function incrementMarkets(timestamp: BigInt): void {
   aggregatorEntity.save();
 };
 
+export function decrementMarkets(timestamp: BigInt): void {
+  const aggregatorEntity = _getAggregator();
+  
+  const currentMarkets = aggregatorEntity.totalMarkets;
+  aggregatorEntity.totalMarkets = currentMarkets.minus(BigInt.fromString("1"));
+
+  aggregatorEntity.lastUpdate = timestamp;
+  aggregatorEntity.save();
+};
+
 export function incrementVaults(timestamp: BigInt): void {
   const aggregatorEntity = _getAggregator();
 
   const currentVaults = aggregatorEntity.totalVaults;
   aggregatorEntity.totalVaults = currentVaults.plus(BigInt.fromString("1"));
+
+  aggregatorEntity.lastUpdate = timestamp;
+  aggregatorEntity.save();
+};
+
+export function decrementVaults(timestamp: BigInt): void {
+  const aggregatorEntity = _getAggregator();
+  
+  const currentVaults = aggregatorEntity.totalVaults;
+  aggregatorEntity.totalVaults = currentVaults.minus(BigInt.fromString("1"));
 
   aggregatorEntity.lastUpdate = timestamp;
   aggregatorEntity.save();
