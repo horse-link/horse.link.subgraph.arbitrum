@@ -62,6 +62,10 @@ dataSources:
           handler: handlePlaced
         - event: Settled(uint256,uint256,uint8,indexed address)
           handler: handleSettled
+        - event: Borrowed(indexed address,uint256,uint256)
+          handler: handleBorrowed
+        - event: Repaid(indexed address,uint256)
+          handler: handleRepaid
       file: ./src/market.ts
 
   # REGISTRY
