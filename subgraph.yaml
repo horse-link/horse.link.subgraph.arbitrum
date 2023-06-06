@@ -50,6 +50,8 @@ dataSources:
         - Protocol
         - Bet
         - Aggregator
+        - Borrow
+        - Repay
       abis:
         - name: Market
           file: ./abis/Market.json
