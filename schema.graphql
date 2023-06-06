@@ -132,3 +132,28 @@ type User @entity {
   # when user entity was last updated
   lastUpdate: BigInt!
 }
+
+type Borrow @entity {
+  # id will be tx hash
+  id: ID!
+
+  # address of vault borrowed from
+  vaultAddress: String!
+
+  # index of bet that borrowed
+  betIndex: BigInt!
+
+  # amount borrowed
+  amount: BigInt!
+}
+
+type Repay @entity {
+  # id will be tx hash
+  id: ID!
+
+  # address of vault repaid
+  vaultAddress: String!
+
+  # amount repaid
+  amount: BigInt!
+}
