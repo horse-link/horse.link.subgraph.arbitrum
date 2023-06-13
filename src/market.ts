@@ -169,6 +169,8 @@ export function handleBorrowed(event: Borrowed): void {
   entity.betIndex = event.params.index;
   entity.vaultAddress = event.params.vault.toHexString();
 
+  entity.createdAt = event.block.timestamp;
+
   entity.save();
 }
 
@@ -187,6 +189,8 @@ export function handleRepaid(event: Repaid): void {
 
   entity.amount = amount;
   entity.vaultAddress = event.params.vault.toHexString();
+
+  entity.createdAt = event.block.timestamp;
 
   entity.save();
 }
